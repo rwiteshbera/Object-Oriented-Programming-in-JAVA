@@ -2,15 +2,15 @@
 
 Object means a real-world entity such as car, pen, table, book, chair etc. **Object-Oriented Programming** is a methodology or paradigm to design a program using classes and objects. It simplifies software development and maintenance by providing some concepts:
 
-[Class & Object](https://www.notion.so/Class-Object-8a01f9b1f56c4a9fbbb5bac24df8a72d)
+[Class & Object]
 
-[Inheritance](https://www.notion.so/Inheritance-ae468602a10f43e99192d5615dc565da)
+[Inheritance]
 
-[Polymorphism](https://www.notion.so/Polymorphism-7bb914f041a84386a2097267e921f6dd)
+[Polymorphism]
 
-[Abstraction](https://www.notion.so/Abstraction-e0074690cdec4582bec12b7466a4f1d3)
+[Abstraction]
 
-[Encapsulation](https://www.notion.so/Encapsulation-650b5b1471524e1f9806ec870747dea0)
+[Encapsulation]
 
 ### 1️⃣ Class & Object
 
