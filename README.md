@@ -2,15 +2,15 @@
 
 Object means a real-world entity such as car, pen, table, book, chair etc. **Object-Oriented Programming** is a methodology or paradigm to design a program using classes and objects. It simplifies software development and maintenance by providing some concepts:
 
-[Class & Object]
+[Class & Object](https://www.notion.so/Class-Object-8a01f9b1f56c4a9fbbb5bac24df8a72d)
 
-[Inheritance]
+[Inheritance](https://www.notion.so/Inheritance-ae468602a10f43e99192d5615dc565da)
 
-[Polymorphism]
+[Polymorphism](https://www.notion.so/Polymorphism-7bb914f041a84386a2097267e921f6dd)
 
-[Abstraction]
+[Abstraction](https://www.notion.so/Abstraction-e0074690cdec4582bec12b7466a4f1d3)
 
-[Encapsulation]
+[Encapsulation](https://www.notion.so/Encapsulation-650b5b1471524e1f9806ec870747dea0)
 
 ### 1️⃣ Class & Object
 
@@ -432,3 +432,266 @@ public class Main {
 ```
 
 The **`extends` keyword** is used to indicate that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.
+
+### Types of Inheritance
+
+![Inheritance.png](Object-Oriented%20Programming%20in%20Java%2079a9eb0653d948a7a0941109e0bf2dd2/Inheritance.png)
+
+1. **Single Inheritance**
+    
+    In single inheritance, subclasses inherit the features of one superclass.
+    
+
+```java
+class A {
+    public void print_A() {
+        System.out.println("I am from Class A!");
+    }
+}
+
+class B extends A {
+    public void print_B() {
+        System.out.println("I am from Class B!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        B b = new B();
+        b.print_A(); // I am from Class A!
+    }
+}
+```
+
+1. **Multi-level Inheritance**
+    
+    In Multilevel Inheritance, a derived class will be inheriting a base class and as well as the derived class also act as the base class to other classes.
+    
+
+```java
+class A {
+    public void print() {
+        System.out.println("I am from Class A!");
+    }
+}
+
+class B extends A {
+
+}
+
+class C extends B {
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.print(); // I am from Class A
+    }
+}
+```
+
+1. **Hierarchical Inheritance**
+    
+     When two or more classes inherit a single class, it is known as hierarchical inheritance.
+    
+
+```java
+class A {
+    public void print_A() { System.out.println("Class A"); }
+}
+ 
+class B extends A {
+    public void print_B() { System.out.println("Class B"); }
+}
+ 
+class C extends A {
+    public void print_C() { System.out.println("Class C"); }
+}
+ 
+class D extends A {
+    public void print_D() { System.out.println("Class D"); }
+}
+ 
+// Driver Class
+public class Test {
+    public static void main(String[] args)
+    {
+        B obj_B = new B();
+        obj_B.print_A(); // Class A
+ 
+        C obj_C = new C();
+        obj_C.print_A(); // Class A
+ 
+        D obj_D = new D();
+        obj_D.print_A(); // Class A
+    }
+}
+```
+
+1. **Multiple Inheritance (Through Interfaces)**
+    
+    In Multiple inheritances, one class can have more than one superclass and inherit features from all parent classes. Please note that Java does **not** support multiple inheritances with classes. In java, we can achieve multiple inheritances only through interfaces.
+    
+
+```java
+interface One {
+    public void print_geek();
+}
+
+class Two {
+    public void print_for() {
+        System.out.println("for");
+    }
+}
+
+class Child extends Two implements One {
+    @Override
+    public void print_geek() {
+        System.out.println("Geeks");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.print_geek(); // Geeks
+    }
+}
+```
+
+**5. Hybrid Inheritance(Through Interfaces)**
+
+ ****It is a mix of two or more of the above types of inheritance. Since java doesn’t support multiple inheritances with classes, hybrid inheritance is also not possible with classes. In java, we can achieve hybrid inheritance only through interfaces.
+
+**Important facts about inheritance in Java**
+
+- **Default superclass**: Except Object class, which has no superclass, every class has one and only one direct superclass (single inheritance). In the absence of any other explicit superclass, every class is implicitly a subclass of the Object class.
+- **Superclass can only be one:** A superclass can have any number of subclasses. But a subclass can have only **one** superclass. This is because Java does not support multiple inheritance with classes. Although with interfaces, multiple inheritances are supported by java.
+- **Inheriting Constructors:** A subclass inherits all the members (fields, methods, and nested classes) from its superclass. Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.
+- **Private member inheritance:** A subclass does not inherit the private members of its parent class. However, if the superclass has public or protected methods(like getters and setters) for accessing its private fields, these can also be used by the subclass.
+
+### Super keyword in Java
+
+The **super** keyword in Java is a reference variable that is used to refer to the immediate parent class object. Whenever you create the instance of a subclass, an instance of parent class is created implicitly which is referred to by the `super` reference variable.
+
+**Usage of Java super Keyword**
+
+1. super can be used to refer to the immediate parent class instance variable.
+2. super can be used to invoke the immediate parent class method.
+3. super() can be used to invoke immediate parent class constructor.
+
+**1. Use of super with variables:**
+
+```java
+/* Base class vehicle */
+class Vehicle
+{
+	int maxSpeed = 120;
+}
+
+/* sub class Car extending vehicle */
+class Car extends Vehicle
+{
+	int maxSpeed = 180;
+
+	void display()
+	{
+		/* print maxSpeed of base class (vehicle) */
+		System.out.println("Maximum Speed: " + super.maxSpeed);
+	}
+}
+
+/* Driver program to test */
+class Test
+{
+	public static void main(String[] args)
+	{
+		Car small = new Car();
+		small.display(); // Maximum Speed: 120
+	}
+}
+```
+
+**2. Use of super with methods:**
+
+```java
+/* Base class Person */
+class Person
+{
+	void message()
+	{
+		System.out.println("This is person class");
+	}
+}
+
+/* Subclass Student */
+class Student extends Person
+{
+	void message()
+	{
+		System.out.println("This is student class");
+	}
+
+	// Note that display() is only in Student class
+	void display()
+	{
+		// will invoke or call current class message() method
+		message();
+
+		// will invoke or call parent class message() method
+		super.message();
+	}
+}
+
+/* Driver program to test */
+class Test
+{
+	public static void main(String args[])
+	{
+		Student s = new Student();
+
+		// calling display() of Student
+		s.display(); 
+		// This is student class
+		//  This is person class
+	}
+}
+```
+
+**3**. **Use of super with constructors:**
+
+```java
+/* superclass Person */
+class Person
+{
+	Person()
+	{
+		System.out.println("Person class Constructor");
+	}
+}
+
+/* subclass Student extending the Person class */
+class Student extends Person
+{
+	Student()
+	{
+		// invoke or call parent class constructor
+		super();
+
+		System.out.println("Student class Constructor");
+	}
+}
+
+/* Driver program to test*/
+class Test
+{
+	public static void main(String[] args)
+	{
+		Student s = new Student();
+		/*
+			Person class Constructor
+			Student class Constructor
+		*/
+	}
+}
+```
