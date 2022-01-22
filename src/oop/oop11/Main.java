@@ -1,28 +1,24 @@
-package oop.oop11;
-
-import java.util.ArrayList;
-import java.util.function.Consumer;
+package oop.oop12;
 
 public class Main {
-    public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        for (int i = 0 ;  i < 5 ; i++) {
-            arr.add(i+1);
-        }
+    public static void main(String[] args) throws Exception {
+            int a = 5;
+            int b = 0;
 
-//        arr.forEach((item)->{
-//            System.out.print(item  * 2 + " ");
-//        });
-
-        Consumer<Integer> fun = (item)-> System.out.print(item  * 2 + " ");
-
-        arr.forEach(fun);
-
-
-
+            try {
+                divide(a,b);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            } finally {
+                System.out.println("Final Message");
+            }
     }
 
-    int sum (int a, int b) {
-        return a + b;
+    static int divide (int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException("Please don't divide by zero.");
+        }
+
+        return a / b;
     }
 }
